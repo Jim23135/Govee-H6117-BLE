@@ -20,12 +20,25 @@ Note:
 - First byte - The overall mode
 - Second byte - What we want to do i.e. turn off/on (`0x01`), set the brightness (`0x04`), or change the color (`0x05`) of the lights
 - Last byte - XOR checksum calculated by enumerating through each byte and xoring it to the last. i.e. `0 ^ 0x33 -> 0x33 ^ 0x01 ...`
-#### Off
-`33 01``00``00000000000000000000000000000000``32`
-#### On
-`33 01``01``0000000000000000000000000000000033`
+#### Power Mode
+##### Off
+`33 01` `00` `00000000000000000000000000000000` `32`
+##### On
+`33 01` `01` `00000000000000000000000000000000` `33`
+#### Brightness
+##### 14% Brightness
+`33 04` `24` `00000000000000000000000000000000` `13`
+#### Color (has extra data)
+##### `rgb(245,174,244)`
+`33 05` `0b f5 ae f4 ff ff` `0000000000000000000000` `92`
+- 3rd byte is color changing mode. i.e. Static color (`0x0b`), changing color (`0x0a`), etc
+- 4th byte is r (`0xF5`)
+- 5th byte is g (`0xAE`)
+- 6th byte is b (`0xF4`)
+- 7th byte is unknown
+- 8th byte is unknown
 
-
+---
 ## Bluetooth Low Energy / GATT quick reference
 - There are two types of UUIDs
   - 16 bit (still actually 128 bits) - Have Specific meanings - assigned by Bluetooth SIG
