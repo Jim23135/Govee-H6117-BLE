@@ -17,7 +17,7 @@ The following are the service and characteristic that we are interested in if we
 The data exchanged between the client and server is a 160 bit or 20 byte data field.
 Note:
 - I have separated out the important parts with spaces in the following examples
-- First byte - The overall mode
+- First byte - The overall mode/operation
 - Second byte - What we want to do i.e. turn off/on (`0x01`), set the brightness (`0x04`), or change the color (`0x05`) of the lights
 - Last byte - XOR checksum calculated by enumerating through each byte and xoring it to the last. i.e. `0 ^ 0x33 -> 0x33 ^ 0x01 ...`
 #### Power Mode
