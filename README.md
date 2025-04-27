@@ -21,9 +21,9 @@ Note:
 - Second byte - What we want to do i.e. turn off/on (`0x01`), set the brightness (`0x04`), or change the color (`0x05`) of the lights
 - Last byte - XOR checksum calculated by enumerating through each byte and xoring it to the last. i.e. `0 ^ 0x33 -> 0x33 ^ 0x01 ...`
 #### Off
-> `33 01``00``00000000000000000000000000000000``32`
+`33 01``00``00000000000000000000000000000000``32`
 #### On
-> `33 01``01``0000000000000000000000000000000033`
+`33 01``01``0000000000000000000000000000000033`
 
 
 ## Bluetooth Low Energy / GATT quick reference
