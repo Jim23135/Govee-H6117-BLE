@@ -1,5 +1,5 @@
 # Govee-H6117-BLE
-Covers my findings from reverse engineering some of the bluetooth packets exchanged between my phone and the Govee H6117 led strip lights. This barbones write up is meant to bring you (or me) up to speed on the basics of communicating with this specefic light strip.
+Covers my findings from reverse engineering some of the bluetooth packets exchanged between my phone and the Govee H6117 led strip lights. This barbones write up is meant to bring you (or me) up to speed on the basics of communicating with this Specific light strip.
 
 ## Goal
 Control the light strip's _brightness, color, on/off state_ without using the _original app or Govee's developer API_.
@@ -9,8 +9,9 @@ The Govee H6117 uses two means of communication: WiFi and Bluetooth Low energy
 
 ## Bluetooth Low Energy / GATT quick reference
 There are two types of UUIDs
-- 16 bit (still actually 128 bits) - Have specefic meanings - assigned by Bluetooth SIG
+- 16 bit (still actually 128 bits) - Have Specific meanings - assigned by Bluetooth SIG
   - EX: `0x2A00` (Device Name) is actually `00002A00-0000-1000-8000-00805F9B34FB`. Note the `2A00` padded by 0s at the beginning. [A full list of these can be found page 61](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Assigned_Numbers/out/en/Assigned_Numbers.pdf)
+- 128 bit (Vendor Specific)
 - Bluetooth device
   - Service 1
     - Characteristic 1
