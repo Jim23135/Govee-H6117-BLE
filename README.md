@@ -17,11 +17,11 @@ The Govee H6117 uses two means of communication: WiFi and Bluetooth Low energy
     - Characteristic 1
       - Descriptor
       - Descriptor
-  - Characteristic 2
+    - Characteristic 2
       - Descriptor
- - Service 2
-   - Characteristic 1
-     - Descriptor
+   - Service 2
+     - Characteristic 1
+       - Descriptor
 
 ## Miscellaneous
 - Best way to log packets:
