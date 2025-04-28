@@ -2,11 +2,9 @@
 Covers my findings from reverse engineering some of the bluetooth packets exchanged between my phone and the Govee H6117 led strip lights. This is a simple write up containing notes and understandings of BLE and the Govee H6117 led strip.
 ---
 ## Goal
-Control the light strip's _brightness, color, on/off state_ without using the _original app or Govee's developer API_.
-
+Control the light strip's _brightness, color, on/off state_ without using the _original app or Govee's developer API_. Instead we will directly use Bluetooth Low Energy which is supported by majority of Govee's products
 ## Device information
-The Govee H6117 uses two means of communication: WiFi and Bluetooth Low energy
-
+The Govee H6117 uses two means of communication: WiFi (communicates with Govee's servers) and Bluetooth Low energy.
 ## Communication
 The following are the service and characteristic that we are interested in if we want to change the state of the light strip.
 - Opcode / write command: `0x52`
