@@ -67,6 +67,7 @@ Note:
   - Find a packet that performs the action you intended to record and take note of the opcode. Also while you've got this packet open: If there is a value field, right click -> `Apply as Column`
   - Filter for that opcode: `btatt.opcode == opcodehere`
 - Use `nRF Connect` Android app for probing
+- Sample Python testing example provided in repo
 
 ## References
 - https://developerhelp.microchip.com/xwiki/bin/view/applications/ble/introduction/bluetooth-architecture/bluetooth-host-layer/bluetooth-generic-attribute-profile-gatt/Data-Organization/
