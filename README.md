@@ -18,25 +18,28 @@ The data exchanged between the client and server is a 160 bit or 20 byte data fi
 Note:
 - I have separated out the important parts with spaces in the following examples
 - First byte - The overall mode/operation
-- Second byte - What we want to do i.e. turn off/on (`0x01`), set the brightness (`0x04`), or change the color (`0x05`) of the lights
+- Second byte - What we want to do i.e. turn off/on (`0x01`), set the brightness (`0x04`), or change the color state (`0x05`) of the lights
 - Last byte - XOR checksum calculated by enumerating through each byte and xoring it to the last. i.e. `0 ^ 0x33 -> 0x33 ^ 0x01 ...`
 #### Power Mode
 ##### Off
 `33 01` `00` `00000000000000000000000000000000` `32`
+- 3rd byte: Off (`0x00`)
 ##### On
 `33 01` `01` `00000000000000000000000000000000` `33`
+- 3rd byte: On (`0x01`)
 #### Brightness
-##### 14% Brightness
+##### 14% / 36 Brightness
 `33 04` `24` `00000000000000000000000000000000` `13`
+- 3rd byte: 36 brightness on a scale of 0-255 (`0x24`)
 #### Color (has extra data)
 ##### `rgb(245,174,244)`
 `33 05` `0b f5 ae f4 ff ff` `0000000000000000000000` `92`
-- 3rd byte is color changing mode. i.e. Static color (`0x0b`), changing color (`0x0a`), etc
-- 4th byte is r (`0xF5`)
-- 5th byte is g (`0xAE`)
-- 6th byte is b (`0xF4`)
-- 7th byte is unknown
-- 8th byte is unknown
+- 3rd byte: color changing mode. i.e. Static color (`0x0b`), changing color (`0x0a`), etc
+- 4th byte: r (`0xF5`)
+- 5th byte: g (`0xAE`)
+- 6th byte: b (`0xF4`)
+- 7th byte: unknown
+- 8th byte: unknown
 
 ---
 ## Bluetooth Low Energy / GATT quick reference
